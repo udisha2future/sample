@@ -17,17 +17,15 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'sample'
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'sample'
     customCommand: 'run build'
 
 - task: CopyFiles@2
   inputs:
-    Contents: 'sample/build/**'
-    TargetFolder: $(Build.ArtifactStagingDirectory) 
+    Contents: 'build/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
