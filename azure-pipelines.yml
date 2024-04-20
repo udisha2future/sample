@@ -12,11 +12,16 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSource: 'spec'
+    versionSpec: '10.0.5'
   displayName: 'Install Node.js'
 - task: Npm@1
   inputs:
     command: 'install'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'audix fix --force'
 - task: Npm@1
   inputs:
     command: 'custom'
