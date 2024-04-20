@@ -22,6 +22,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
+    customCommand: 'audit fix'
+- task: Npm@1
+  inputs:
+    command: 'custom'
     customCommand: 'run build'
 - task: CopyFiles@2
   inputs:
